@@ -5,7 +5,6 @@ from distutils.command.build import build as DistutilsBuild
 from distutils.command.build_ext import build_ext as DistutilsBuildExt
 from setuptools import setup, Extension
 
-import build
 
 class BuildExt(DistutilsBuildExt):
     def run(self):
@@ -56,6 +55,7 @@ You can obtain a recent Go build from https://golang.org/doc/install. If on Ubun
 """)
 
     def build(self):
+        import build
         try:
             sys.stderr.write('Running new build\n')
             build.build()
